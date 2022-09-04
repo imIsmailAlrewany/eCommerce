@@ -1,0 +1,36 @@
+<section class="container register">
+  <div class="row form">
+    <div class="img col-6 margin"><img class="img-fluid" src="assets/girl.png" alt=""></div>
+    <form class="col-md-6" [formGroup]="registerForm" (ngSubmit)="handleRegister()">
+      <div class="mb-3">
+        <label for="userName" class="form-label">User name</label>
+        <input type="text" class="form-control" id="userName" formControlName="name">
+        <div *ngIf="registerForm.invalid && (registerForm.touched || registerForm.dirty)">
+          <p class="alert alert-danger" *ngIf="name?.['errors']?.['required']">Name is Required</p>
+          <p class="alert alert-danger" *ngIf="name?.['errors']?.['minLength']">At least 3 characters</p>
+          <p class="alert alert-danger" *ngIf="name?.['errors']?.['maxLength']">You have reached max characters</p>
+        </div>
+        <div class="alert alert-danger" *ngIf="errMsg.name">{{errMsg.name}}</div>
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email address</label>
+        <input type="email" class="form-control" id="email" formControlName="email">
+        <div *ngIf="registerForm.invalid && (registerForm.touched || registerForm.dirty)">
+          <p class="alert alert-danger" *ngIf="email?.['errors']?.['required']">Email is Required</p>
+          <p class="alert alert-danger" *ngIf="email?.['errors']?.['email']">invalid Email</p>
+        </div>
+        <div class="alert alert-danger" *ngIf="errMsg.email">{{errMsg.email}}</div>
+      </div>
+      <div class="mb-3">
+        <label for="pass" class="form-label">Password</label>
+        <input type="password" class="form-control" id="pass" formControlName="password">
+        <div *ngIf="registerForm.invalid && (registerForm.touched || registerForm.dirty)">
+          <p class="alert alert-danger" *ngIf="password?.['errors']?.['required']">Password is Required</p>
+          <p class="alert alert-danger" *ngIf="password?.['errors']?.['minLength']">At least 6 characters</p>
+        </div>
+        <div class="alert alert-danger" *ngIf="errMsg.password">{{errMsg.password}}</div>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+</section>

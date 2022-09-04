@@ -1,0 +1,19 @@
+.height {
+  height: calc(100vh - 249px);
+}
+.flex {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.flex img {
+  width: 150px;
+  height: 150px;
+}
+.flex p {
+  font-size: 25px;
+}
+.upload {
+  display: flex;
+  justify-content: space-around;
+}

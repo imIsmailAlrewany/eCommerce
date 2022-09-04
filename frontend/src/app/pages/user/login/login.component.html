@@ -1,0 +1,26 @@
+<section class="container my-5 login">
+  <div class="row justify-content-center marign">
+      <form class="col-md-6"  [formGroup]="loginForm" (ngSubmit)="handleLogin()">
+        <div class="mb-3">
+          <label for="email" class="form-label">Email address</label>
+          <input type="email" class="form-control" id="email"  formControlName="email">
+          <div *ngIf="loginForm.invalid && (loginForm.touched || loginForm.dirty)">
+            <p class="alert alert-danger" *ngIf="email?.['errors']?.['required']">Email is Required</p>
+            <p class="alert alert-danger" *ngIf="email?.['errors']?.['email']">invalid Email</p>
+          </div>
+          <div class="alert alert-danger" *ngIf="errMsg.email">{{errMsg.email}}</div>
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" class="form-control" id="password"  formControlName="password">
+          <div *ngIf="loginForm.invalid && (loginForm.touched || loginForm.dirty)">
+            <p class="alert alert-danger" *ngIf="password?.['errors']?.['required']">Password is Required</p>
+            <p class="alert alert-danger" *ngIf="password?.['errors']?.['minLength']">At least 6 characters</p>
+          </div>
+          <div class="alert alert-danger" *ngIf="errMsg.password">{{errMsg.password}}</div>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <p class="fs-6 text-center d-inline ms-3">Have no account <a class="text-decoration-none text-initail fw-bold" routerLink="/register">Register Now</a></p>
+      </form>
+  </div>
+  </section>

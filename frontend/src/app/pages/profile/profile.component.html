@@ -1,0 +1,49 @@
+<section class="container height">
+  <div class="row">
+    <div class="col-6 mt-5">
+      <form class="mt-5" [formGroup]="editForm" (ngSubmit)="handledit()">
+        <div class="mb-3">
+          <label for="userName" class="form-label">User name</label>
+          <input type="text" class="form-control" id="userName" formControlName="name">
+          <!-- [disabled]="disabled" -->
+          <!-- <div *ngIf="editForm.invalid && (editForm.touched || editForm.dirty)">
+            <p class="alert alert-danger" *ngIf="name?.['errors']?.['required']">Name is Required</p>
+            <p class="alert alert-danger" *ngIf="name?.['errors']?.['minLength']">At least 3 characters</p>
+            <p class="alert alert-danger" *ngIf="name?.['errors']?.['maxLength']">You have reached max characters</p>
+          </div> -->
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email address</label>
+          <input type="email" class="form-control" id="email" formControlName="email">
+          <!-- <div *ngIf="editForm.invalid && (editForm.touched || editForm.dirty)">
+            <p class="alert alert-danger" *ngIf="email?.['errors']?.['required']">Email is Required</p>
+            <p class="alert alert-danger" *ngIf="email?.['errors']?.['email']">invalid Email</p>
+          </div> -->
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" class="form-control" id="password" formControlName="password">
+          <!-- <div *ngIf="editForm.invalid && (editForm.touched || editForm.dirty)">
+            <p class="alert alert-danger" *ngIf="password?.['errors']?.['required']">Password is Required</p>
+            <p class="alert alert-danger" *ngIf="password?.['errors']?.['minLength']">At least 6 characters</p>
+          </div> -->
+        </div>
+        <button type="submit" class="btn btn-primary" (click)="edit()">Edit profile Data</button>
+        <button type="submit" class="btn btn-danger ms-3 me-5" (click)="del()">Delete profile</button>
+      </form>
+    </div>
+    <div class="pic col-6 mt -5">
+      <div class="flex mt-5">
+        <div class="img img-fluid text-center my-5">
+          <img class="rounded-circle" [src]="pic" alt="">
+        </div>
+        <form action="" class="upload my-3 align-items-center"  >
+          <!-- [formGroup]="uploadPicForm" (ngSubmit)="upPic()" -->
+          <input type="file"  formControlName="pic">
+          <button class="btn btn-primary">Edit</button>
+          <button class="btn btn-danger">Delete</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,16 @@
+ul {
+  list-style-type: none;
+  background-color: #EEE;
+}
+a {
+  text-decoration: none;
+}
+ul li a {
+  color: rgb(21, 49, 232) !important;
+}
+ul li a:hover {
+  color: rgb(21, 49, 232) !important;
+}
+ul li a.active {
+  color: #666 !important;
+}

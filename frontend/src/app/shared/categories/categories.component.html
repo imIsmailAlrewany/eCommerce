@@ -1,0 +1,20 @@
+<section class="container my-5">
+  <div *ngFor="let key of keys">
+    <h4 class="bg-primary py-2 text-light text-center rounded">{{key}}</h4>
+    <div class="my-5">
+      <div class="row justify-content-between flex-wrap">
+        <div class="card col-3 mb-5 height" style="width: 18rem;" *ngFor="let product of categories?.[key]">
+          <img [src]="product.pBanner" class="card-img-top img-fluid" alt="Product Banner Picture">
+          <div class="card-body row row-column">
+            <h5 class="card-title">Name: {{product.name}}</h5>
+            <p class="card-text p">Description: {{product.description}}</p>
+            <span class="card-text p me-3">Price: {{product.price}}</span>
+            <span class="card-text p">Rate: {{product.rate}}</span>
+            <p class="card-text p">Quantity: {{product.quantity}}</p>
+            <button class="btn btn-outline-primary col-5 align-self-end" (click)="addToCart(product._id)">Add to cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

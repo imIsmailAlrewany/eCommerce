@@ -1,0 +1,14 @@
+<section class="container height">
+  <div class="flex">
+    <div class="img img-fluid text-center my-5">
+      <!-- {{_auth.userData.userImage}} -->
+      <img class="rounded-circle" src="http://localhost:3000/{{_auth.userData?.['userImage']}}" alt="">
+    </div>
+    <p class="text-center my-3">Would you like to upload a profile picture or just skip this step for now?!</p>
+    <form action="" class="upload my-3"  [formGroup]="uploadPicForm" (ngSubmit)="upPic()">
+      <input type="file"  formControlName="pic" (change)="onChangeImage($event)">
+      <button class="btn btn-primary" routerLink="/login">Upload</button>
+      <button class="btn btn-outline-primary" routerLink="/login">Skip</button>
+    </form>
+  </div>
+</section>

@@ -1,0 +1,13 @@
+.container .row div.borders {
+  /* border: 1px solid #333; */
+  border-left: 1px solid #333 !important;
+}
+.height {
+  height: 250px;
+}
+.input {
+  height: 30px;
+}
+.column {
+  flex-direction: column;
+}

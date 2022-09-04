@@ -1,0 +1,44 @@
+<section class="container my-3">
+  <div class="po row justify-content-between">
+    <h4 class="my-5 col-9">All selected products</h4>
+    <h4 class="my-5 col-3">All Orders</h4>
+  </div>
+  <div class="row justify-content-between" *ngIf="cartProduct.length > 0">
+    <div class="cart col-9" *ngFor="let product of cartProduct; let i = index;">
+      <div class="card col-3 mb-5 height" style="width: 18rem;">
+        <img [src]="product.pBanner" class="card-img-top img-fluid" alt="Product Banner Picture">
+        <div class="card-body row row-column">
+          <h5 class="card-title">Name: {{product.name}}</h5>
+          <span class="card-text p me-3">Price: {{product.price}}</span>
+          <form  class="row column justify-content-between">
+            <div class="row justify-content-between mx-auto align-items-center">Quantity: <input type="number" class="card-text p col-3 input"
+              value="{{product.quant}}">
+              <button class="btn btn-primary col-2" (click)="inc(i, product.quant + 1)">+</button>
+              <button class="btn btn-danger col-2" (click)="dec(i, product.quant - 1)">-</button>
+            </div>
+            <div class="row ms-1 justify-content-between">
+              <button class="btn btn-outline-primary col-4"  (click)="order(i)">Order</button>
+              <button class="btn btn-outline-danger col-4 ms-3" (click)="del(i)">Delete</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="cart col-3 borders">
+      <div class="row" *ngIf="orders.length > 0">
+        <div class="border ms-2" *ngFor="let order of orders">
+          <p class="mb-1">{{order._id}}</p>
+          <p class="mb-1">Quantity: {{order.quant}}</p>
+          <p class="mb-1">Total Price: {{order.price * order.quant}} L.E</p>
+          <button class="btn btn-outline-danger p-0 mb-1" (click)="delOrder(order._id)">Delete</button>
+        </div>
+      </div>
+      <div *ngIf="orders.length == 0" class="row">
+        <p class="text-center text-warning fs-4">There is no orders's yet</p>
+      </div>
+    </div>
+  </div>
+  <div class="mb-5" *ngIf="cartProduct.length == 0">
+    <p class="text-warning fs-4">There is no products in your cart</p>
+  </div>
+</section>

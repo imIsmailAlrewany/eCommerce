@@ -1,0 +1,47 @@
+<!-- <app-navbar *ngIf="data"></app-navbar> -->
+<section class="container mt-3 height" *ngIf="data">
+  <!-- <app-main *ngIf=""></app-main> -->
+</section>
+<section class="container height" *ngIf="!data">
+  <p class="fs-4 text-center text-warning my-4">Your aren't a Seller yet,
+    <span class="text-primary">Would you like to Join us?!</span>
+  </p>
+<form class="row my-4" [formGroup]="sellerForm" (click)="handelSeller()">
+  <div class="col-3 mb-3">
+    <label for="userName" class="form-label">First name</label>
+    <input type="text" class="form-control" id="userName" formControlName="fName">
+    <!-- <div class="alert alert-danger" *ngIf="errMsg.fName">{{errMsg.fName}}</div> -->
+  </div>
+  <div class="col-3 mb-3">
+    <label for="email" class="form-label">Middle name</label>
+    <input type="text" class="form-control" id="email" formControlName="mName">
+    <!-- <div class="alert alert-danger" *ngIf="errMsg.mName">{{errMsg.mName}}</div> -->
+  </div>
+  <div class="col-3 mb-3">
+    <label for="pass" class="form-label">Last name</label>
+    <input type="text" class="form-control" id="pass" formControlName="lName">
+    <!-- <div class="alert alert-danger" *ngIf="errMsg.lName">{{errMsg.lName}}</div> -->
+  </div>
+  <div class="col-5 mb-3">
+    <label for="phone" class="form-label">Phone</label>
+    <input type="text" class="form-control" id="pass" formControlName="phone">
+    <!-- <div class="alert alert-danger" *ngIf="errMsg.phone">{{errMsg.phone}}</div> -->
+  </div>
+  <div class="col-5 mb-3">
+    <label for="country" class="form-label">Country</label>
+    <input type="text" class="form-control" id="pass" formControlName="country">
+    <!-- <div class="alert alert-danger" *ngIf="errMsg.country">{{errMsg.country}}</div> -->
+  </div>
+  <div class="mb-3 col-10">
+    <label for="address" class="form-label">Address</label>
+    <input type="text" class="form-control" id="pass" placeholder="" formControlName="address">
+    <!-- <div class="alert alert-danger" *ngIf="errMsg.address">{{errMsg.address}}</div> -->
+  </div>
+  <div class="mb-3 col-10">
+    <label for="business" class="form-label">Business</label>
+    <input type="text" class="form-control" id="pass" formControlName="businessType">
+    <!-- <div class="alert alert-danger" *ngIf="errMsg.businessType">{{errMsg.businessType}}</div> -->
+  </div>
+  <button type="submit" class="btn btn-primary col-3 ms-2">Submit</button>
+</form>
+</section>

@@ -1,0 +1,7 @@
+.logo-color {
+  color: #209CEE;
+}
+.logo-color::first-letter {
+  font-family: 'Enriqueta', serif;
+
+}

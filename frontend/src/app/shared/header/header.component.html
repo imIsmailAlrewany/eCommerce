@@ -1,0 +1,33 @@
+<nav class="navbar navbar-expand-lg bg-light fs-5 border border-bottom shadow">
+  <div class="container-fluid">
+    <a class="navbar-brand logo-color fs-3" routerLink="/">Shop</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact:true}" routerLink="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLinkActive]="'active'" routerLink="/u"  *ngIf="_auth.isLoggedIn">Profile</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLinkActive]="'active'" routerLink="/sell">Sell</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLinkActive]="'active'" routerLink="/cart">Cart</a>
+        </li>
+        <li class="nav-item m-1" *ngIf="!_auth.isLoggedIn">
+          <a class="nav-link btn btn-warning p-1 fs-6 text-black-50" [routerLinkActive]="'active'" routerLink="/register">Register</a>
+        </li>
+        <li class="nav-item" *ngIf="!_auth.isLoggedIn">
+          <a class="nav-link btn btn-warning p-1 fs-6 text-black-50" [routerLinkActive]="'active'" routerLink="/login">Login</a>
+        </li>
+        <li class="nav-item" *ngIf="_auth.isLoggedIn">
+          <a class="nav-link btn btn-warning p-1 fs-6 text-black-50" [routerLinkActive]="'active'" routerLink="/login" (click)="logout()">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

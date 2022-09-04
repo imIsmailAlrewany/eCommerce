@@ -1,0 +1,19 @@
+.register {
+  height: calc(100vh - 349px);
+}
+.form {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 100px;
+}
+.margin {
+  z-index: 999;
+}
+.margin img {
+  height: 450px !important;
+}
+.position {
+  position: absolute;
+  right: 150px;
+  top: 130px;
+}

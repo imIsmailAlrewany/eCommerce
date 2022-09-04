@@ -1,0 +1,16 @@
+<section class="container my-5" *ngIf="data">
+  <div class="row justify-content-between flex-wrap">
+    <div class="card col-3 mb-5" style="width: 18rem;" *ngFor="let product of data.products">
+      <img [src]="product.pBanner" class="card-img-top img-fluid" alt="Product Banner Picture">
+      <div class="card-body">
+        <h5 class="card-title">{{product.category}}</h5>
+        <h6 class="card-title">{{product.name}}</h6>
+        <p class="card-text p">{{product.description}}</p>
+        <div class="row justify-content-between">
+          <a routerLink="/product/P/:{{product._id|json}}" class="btn btn-primary col-5">Edit</a>
+          <button class="btn btn-danger col-5" (click)="del()">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

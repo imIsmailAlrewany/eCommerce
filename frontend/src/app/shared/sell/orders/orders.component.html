@@ -1,0 +1,28 @@
+<section class="container my-5">
+  <table class="table border">
+    <thead>
+      <tr class="border text-center">
+        <th class="border">#</th>
+        <th class="border">Name</th>
+        <th class="border">Quantity</th>
+        <th class="border">Price</th>
+        <th class="border">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="text-center" *ngFor="let order of orders; let e = even">
+        <td [ngClass]="{'border':true, 'bg-warning':e}" >{{order._id}}</td>
+        <td [ngClass]="{'border':true, 'bg-warning':e}">{{order.name}}</td>
+        <td [ngClass]="{'border':true, 'bg-warning':e}">{{order.quant}}</td>
+        <td [ngClass]="{'border':true, 'bg-warning':e}">{{order.price * order.quant}}</td>
+        <td [ngClass]="{'border':true, 'bg-warning':e, 'row':true, 'justify-content-evenly':true, 'm-0':true}">
+          <button class="btn btn-primary col-4">Accept</button>
+          <button class="btn btn-danger col-4" (click)="delOrder(order._id)">Delete</button>
+        </td>
+      </tr>
+      <tr *ngIf="orders.length == 0">
+        <td colspan="5" class="text-warning text-center bg-light fs-5">No orders yet</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
